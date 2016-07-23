@@ -1,0 +1,11 @@
+install:
+  # Latest commit from feature/VCMDDAndroid branch:
+  # * https://github.com/Microsoft/CMake/tree/61095d01914c7f3b1a17298f2065c9f7a69a8624
+  - cmd: appveyor DownloadFile https://github.com/Microsoft/CMake/archive/61095d01914c7f3b1a17298f2065c9f7a69a8624.zip
+  - cmd: 7z x 61095d01914c7f3b1a17298f2065c9f7a69a8624.zip
+  - cmd: where cmake
+  - cmd: cmake -HCMake-61095d01914c7f3b1a17298f2065c9f7a69a8624 -B_builds-cmake
+  - cmd: cmake --build _builds-cmake
+
+build_script:
+  - cmd: cmake --version
